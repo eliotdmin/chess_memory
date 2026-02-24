@@ -5,3 +5,4 @@ services:
     name: chess-eval-quiz
     runtime: docker
     dockerfilePath: ./Dockerfile
+    branch: initial-dev
