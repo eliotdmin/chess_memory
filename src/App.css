@@ -1,0 +1,346 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: var(--bg-dark);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--accent);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0.35rem 0 0;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.score {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.streak {
+  font-size: 0.85rem;
+  color: var(--accent);
+  background: rgba(201, 162, 39, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.filter-toggle input {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.filter-toggle span {
+  user-select: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board-wrapper {
+  margin-bottom: 1rem;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 1rem;
+}
+
+.captured-pieces {
+  flex-shrink: 0;
+  min-width: 72px;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.captured-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.captured-row {
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  min-height: 1.5em;
+  letter-spacing: 0.12em;
+}
+
+.captured-row:first-child {
+  color: #7a7a7a; /* black pieces White captured */
+}
+
+.captured-row:last-child {
+  color: #e8e6e3; /* white pieces Black captured */
+}
+
+.piece-sym {
+  margin-right: 0.08em;
+}
+
+.board-wrapper > div {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.game-info {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.game-info .game-meta {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.to-move {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+}
+
+.choices {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.choices-five {
+  max-width: 520px;
+}
+
+.choice {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.choice .range {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-right: 0.25rem;
+}
+
+.choice kbd {
+  font-size: 0.7rem;
+  font-family: inherit;
+  padding: 0.15rem 0.35rem;
+  margin-left: 0.35rem;
+  background: var(--bg-elevated);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.choice:hover {
+  border-color: var(--accent);
+  background: var(--bg-elevated);
+}
+
+.choice.white {
+  border-color: #e8e6e3;
+}
+
+.choice.white:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.choice.black {
+  border-color: #4a4a4a;
+}
+
+.choice.black:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.choice.equal:hover {
+  border-color: var(--text-muted);
+}
+
+.feedback {
+  text-align: center;
+  padding: 1.25rem;
+  border-radius: 8px;
+  max-width: 340px;
+  animation: feedback-in 0.3s ease-out;
+}
+
+@keyframes feedback-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback.correct {
+  background: rgba(90, 154, 90, 0.15);
+  border: 1px solid var(--success);
+}
+
+.feedback.wrong {
+  background: rgba(196, 92, 92, 0.15);
+  border: 1px solid var(--error);
+}
+
+.feedback .result {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.feedback.correct .result {
+  color: var(--success);
+}
+
+.feedback.wrong .result {
+  color: var(--error);
+}
+
+.feedback .actual,
+.feedback .best-move,
+.feedback .best-line {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0.25rem 0;
+}
+
+.feedback .best-line {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.feedback .pv-san {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.feedback .eval-cp {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.feedback .next {
+  margin-top: 1rem;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--bg-dark);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.feedback .next:hover {
+  background: var(--accent-muted);
+  transform: scale(1.02);
+}
+
+.feedback .next kbd {
+  font-size: 0.7rem;
+  margin-left: 0.25rem;
+  opacity: 0.9;
+}
+
+.loading,
+.error {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem;
+}
+
+.error .hint {
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+
+.error code {
+  background: var(--bg-elevated);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.error button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.error button:hover {
+  background: var(--bg-elevated);
+}

@@ -1,0 +1,5 @@
+# Chess position evaluation quiz
+flask>=3.0.0
+flask-cors>=4.0.0
+python-chess>=1.999
+gunicorn>=21.0

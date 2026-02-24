@@ -1,0 +1,7 @@
+# Render Blueprint - https://render.com
+# Deploy: connect repo at render.com; Render assigns a stable URL like chess-eval-quiz.onrender.com
+services:
+  - type: web
+    name: chess-eval-quiz
+    runtime: docker
+    dockerfilePath: ./Dockerfile
