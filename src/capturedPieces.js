@@ -36,8 +36,8 @@ export function getCapturedPieces(fen) {
     const wCount = count[piece] ?? 0;
     const bCount = count[pl] ?? 0;
     const start = STARTING[piece];
-    for (let i = wCount; i < start; i++) black.push(SYMBOLS[piece]);
-    for (let i = bCount; i < start; i++) white.push(SYMBOLS[pl]);
+    for (let i = wCount; i < start; i++) black.push(SYMBOLS[pl]);
+    for (let i = bCount; i < start; i++) white.push(SYMBOLS[piece]);
   }
   return { white: groupPieces(white), black: groupPieces(black) };
 }
