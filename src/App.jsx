@@ -165,13 +165,20 @@ export default function App() {
           <div className="captured-pieces">
             {(() => {
               const { white, black } = getCapturedPieces(position?.fen);
+              const whiteToMove = position?.fen?.includes(" w ");
+              const top = whiteToMove ? black : white;
+              const bottom = whiteToMove ? white : black;
+              const topTitle = whiteToMove ? "Pieces Black has captured" : "Pieces White has captured";
+              const bottomTitle = whiteToMove ? "Pieces White has captured" : "Pieces Black has captured";
+              const topClass = whiteToMove ? "captured-black" : "captured-white";
+              const bottomClass = whiteToMove ? "captured-white" : "captured-black";
               return (
                 <div className="captured-stack">
-                  <div className="captured-row captured-black" title="Pieces Black has captured">
-                    {black.length ? black.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
+                  <div className={`captured-row ${topClass}`} title={topTitle}>
+                    {top.length ? top.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
                   </div>
-                  <div className="captured-row captured-white" title="Pieces White has captured">
-                    {white.length ? white.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
+                  <div className={`captured-row ${bottomClass}`} title={bottomTitle}>
+                    {bottom.length ? bottom.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
                   </div>
                 </div>
               );
