@@ -167,11 +167,11 @@ export default function App() {
               const { white, black } = getCapturedPieces(position?.fen);
               return (
                 <div className="captured-stack">
-                  <div className="captured-row" title="Pieces White has captured">
-                    {white.length ? white.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
-                  </div>
-                  <div className="captured-row" title="Pieces Black has captured">
+                  <div className="captured-row captured-black" title="Pieces Black has captured">
                     {black.length ? black.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
+                  </div>
+                  <div className="captured-row captured-white" title="Pieces White has captured">
+                    {white.length ? white.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
                   </div>
                 </div>
               );
