@@ -174,11 +174,11 @@ export default function App() {
               const bottomClass = whiteToMove ? "captured-white" : "captured-black";
               return (
                 <div className="captured-stack">
-                  <div className={`captured-row ${topClass}`} title={topTitle}>
-                    {top.length ? top.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
-                  </div>
                   <div className={`captured-row ${bottomClass}`} title={bottomTitle}>
                     {bottom.length ? bottom.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
+                  </div>
+                  <div className={`captured-row ${topClass}`} title={topTitle}>
+                    {top.length ? top.map((s, i) => <span key={i} className="piece-sym">{s}</span>) : "—"}
                   </div>
                 </div>
               );
